@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最古老的圣杯</title>
+    <style>
+        body {
+            min-width: 630px;
+            /* 2x (LC fullwidth +
+                            CC padding) + RC fullwidth */
+        }
+
+        #container {
+            padding-left: 200px;
+            /* LC fullwidth */
+            padding-right: 190px;
+            /* RC fullwidth + CC padding */
+            overflow: hidden;
+            height: 200px;
+        }
+
+        #container .column {
+            position: relative;
+            float: left;
+            padding-bottom: 20010px;
+            margin-bottom: -10000px;
+        }
+
+
+        #header {
+            background-color: palegreen;
+        }
+
+
+        #center {
+            padding: 10px 20px;
+            /* CC padding */
+            width: 100%;
+            background-color: yellow;
+        }
+
+        #left {
+            width: 180px;
+            /* LC width */
+            padding: 0 10px;
+            /* LC padding */
+            right: 240px;
+            /* LC fullwidth + CC padding */
+            margin-left: -100%;
+            background-color: brown;
+        }
+
+        #right {
+            width: 130px;
+            /* RC width */
+            padding: 0 10px;
+            /* RC padding */
+            margin-right: -190px;
+            background-color: aqua;
+            /* RC fullwidth + CC padding */
+        }
+
+        #footer {
+            clear: both;
+            background-color:darkorange;
+            position: relative;
+        }
+
+        /*** IE Fix ***/
+        * html #left {
+            left: 150px;
+            /* RC fullwidth */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">header</div>
+    <div id="container">
+        <div id="center" class="column">center</div>
+        <div id="left" class="column">left</div>
+        <div id="right" class="column">right</div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+
+</html>
