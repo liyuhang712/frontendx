@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑块效果</title>
+    <style>
+        :root {
+            font-size: 16px;
+            --nav-item-width: 9rem;
+            --nav-item-height: 2rem;
+            --nav-item-padding: 1rem;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Helvetica;
+            background-color: #e2e8f0;
+            flex-direction: column;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: var(--nav-item-padding) 0;
+            border-radius: var(--nav-item-height);
+            position: relative;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        nav::after {
+            content: '';
+            display: block;
+            width: calc(var(--nav-item-width) - var(--nav-item-padding));
+            height: calc(var(--nav-item-height) + var(--nav-item-padding) * 1);
+            background-color: #e2e8f0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: calc(var(--nav-item-padding) / 2);
+            border-radius: var(--nav-item-height);
+            transition: .5s all cubic-bezier(0.42, 0, 0.91, 2.01);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            height: var(--nav-item-height);
+            position: relative;
+            z-index: 10;
+        }
+
+        nav ul li {
+            font-size: 1.2rem;
+            width: var(--nav-item-width);
+            text-align: center;
+        }
+
+        #nav-home:checked~nav::after {
+            transform: translateX(0);
+        }
+
+
+        #nav-products:checked~nav::after {
+            transform: translateX(calc(var(--nav-item-width) * 1));
+        }
+
+
+        #nav-about:checked~nav::after {
+            transform: translateX(calc(var(--nav-item-width) * 2));
+        }
+
+
+
+        #nav-contact:checked~nav::after {
+            transform: translateX(calc(var(--nav-item-width) * 3));
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .content {
+            width: calc(var(--nav-item-width) * 4);
+            height: 400px;
+            background-color: #fff;
+            margin-top: var(--nav-item-height);
+            border-radius: var(--nav-item-padding);
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .content div {
+            width: calc(var(--nav-item-width) * 4);
+            background-color: #000;
+            flex-shrink: 0;
+            transition: .5s all cubic-bezier(0.42, 0, 0.91, 2.01);
+        }
+
+        .content div:nth-child(1) {
+            background-color: #22d3ee;
+        }
+
+        .content div:nth-child(2) {
+            background-color: #4ade80;
+        }
+
+        .content div:nth-child(3) {
+            background-color: #f472b6;
+        }
+
+        .content div:nth-child(4) {
+            background-color: #22d3ee;
+        }
+
+
+
+
+        #nav-home:checked~.content div {
+            transform: translateX(0);
+        }
+
+
+        #nav-products:checked~.content div {
+            transform: translateX(calc(var(--nav-item-width) * 1 * 4 * -1));
+        }
+
+
+        #nav-about:checked~.content div {
+            transform: translateX(calc(var(--nav-item-width) * 2 * 4 * -1));
+        }
+
+
+
+        #nav-contact:checked~.content div {
+            transform: translateX(calc(var(--nav-item-width) * 3 * 4 * -1));
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="radio" name="nav" id="nav-home">
+    <input type="radio" name="nav" id="nav-products">
+    <input type="radio" name="nav" id="nav-about">
+    <input type="radio" name="nav" id="nav-contact">
+    <nav>
+        <ul>
+            <li><label for="nav-home">Home</label></li>
+            <li><label for="nav-products">Products</label></li>
+            <li><label for="nav-about">About</label></li>
+            <li><label for="nav-contact">Contact</label></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>
