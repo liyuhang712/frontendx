@@ -6,24 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>padding-margin-overflow</title>
     <style>
+
+        h2 { 
+            text-align: center;
+            background-color: aqua;
+            margin: 20px 0;
+        }
+
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
         .container {
             background-color: gray;
-            /* overflow: hidden; */
+            /* display: flow-root; */
+            overflow: hidden;
         }
 
         .container .left {
             background-color: pink;
             float: left;
+            width: 30%;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
         }
 
         .container .right {
             background-color: skyblue;
             float: left;
+            width: 70%;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
         }
     </style>
 </head>
 
 <body>
+    <h2>padding + margin + overflow，实现多列等高效果，兼容性好</h2>
     <div class="container">
         <div class="left">content</div>
         <div class="right">

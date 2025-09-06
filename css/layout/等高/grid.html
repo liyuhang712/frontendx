@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        .box {
+            display: grid;
+            background-color: aqua;
+            grid-template-columns: 2fr 8fr;
+        }
+
+        .box .left {
+            background-color: yellow;
+        }
+
+        .box .right {
+            background-color: pink;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left">
+            content
+        </div>
+        <div class="right">
+            content<br />
+            content<br />
+            content<br />
+            content<br />
+        </div>
+    </div>
+</body>
+
+</html>
