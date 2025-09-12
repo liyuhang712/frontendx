@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Tricks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --spacing-r: 1.5rem;
+            --spacing-l: 3rem;
+            --color-accent: #98838F;
+        }
+
+        html {
+            background-color: #150F0A;
+            -webkit-text-size-adjust: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0 auto;
+            padding-block-end: var(--spacing-l);
+            padding-inline: var(--spacing-l);
+            max-inline-size: 105rem;
+            background-color: #150F0A;
+            color: #fff;
+            font-family: "Poppins", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1em;
+        }
+
+        h1 {
+            margin-block: 0 var(--spacing-r);
+            border-bottom: 5px solid #98838F;
+            font-family: "Poppins", serif;
+            font-weight: 800;
+            font-style: normal;
+            line-height: 1;
+            text-transform: uppercase;
+            color: var(--color-accent);
+        }
+
+        p {
+            margin: 0;
+            orphans: 3;
+        }
+
+        p+p {
+            text-indent: 2ch;
+        }
+
+        img {
+            border-width: 0;
+            content-visibility: auto;
+            max-inline-size: 100%;
+            block-size: auto;
+        }
+
+        figure {
+            margin: var(--spacing-r) 0;
+            padding: 0;
+            break-after: column;
+        }
+
+        figure img {
+            margin: 0;
+            padding: 0;
+        }
+
+        hr {
+            clear: both;
+            display: block;
+            height: 1px;
+            margin-block: var(--spacing-r);
+            margin-inline: 0;
+            padding: 0;
+            border: 0;
+            border-top: 1px solid var(--color-accent);
+        }
+
+        section {
+            margin-block-end: var(--spacing-l);
+        }
+
+        /* DEMO STARTS */
+
+        /* <section> contains no <figure> (default) */
+
+        main {
+            container-type: inline-size;
+            margin-inline: auto;
+            max-width: 100ch;
+            column-width: 40ch;
+            column-gap: var(--spacing-l);
+            column-rule: 1px solid var(--color-accent);
+        }
+
+        h1 {
+            font-size: clamp(5.6526rem, 5.4068rem + 1.2288cqi, 6.3592rem);
+            column-span: all;
+        }
+
+        h2 {
+            font-size: clamp(1.9994rem, 1.9125rem + 0.4347cqi, 2.2493rem);
+            column-span: all;
+        }
+
+        p {
+            font-size: clamp(1rem, 0.9565rem + 0.2174cqi, 1.125rem);
+        }
+
+        blockquote {
+            clear: both;
+            margin-block: var(--spacing-l);
+            margin-inline: 0;
+            padding: 0;
+            column-span: all;
+        }
+
+        blockquote p {
+            margin-block-end: var(--spacing-r);
+            font-size: clamp(1.414rem, 1.3525rem + 0.3074cqi, 1.5908rem);
+            font-size: clamp(1.9994rem, 1.9125rem + 0.4347cqi, 2.2493rem);
+            line-height: 1.2;
+        }
+
+        blockquote cite {
+            display: block;
+            font-style: normal;
+        }
+
+        /* <section> contains a <figure> */
+
+        section:has(> figure) {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 var(--spacing-l);
+        }
+
+        section:has(> figure) main {
+            flex: 1;
+            margin-block-end: var(--spacing-r);
+            margin-inline: 0;
+            padding-block-start: var(--spacing-r);
+            min-width: min(100%, 30rem);
+        }
+
+        section:has(> figure) figure {
+            flex: 4;
+            min-width: min(100%, 30rem);
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <section>
+        <main>
+            <h1>About Patty</h1>
+
+            <p>Patty Meltt, born Patricia Lynn Melton, grew up in a modest household on the outskirts of Nashville,
+                Tennessee. From a young age, she was drawn to country music and her parents, both music lovers, filled
+                their home with the sounds of country legends like Patsy Cline, Loretta Lynn, and Dolly Parton.</p>
+
+            <p>Patty&#8217;s parents scraped together enough money to buy her a secondhand guitar. From that moment on,
+                Patty poured her heart and soul into mastering the instrument, spending countless hours practicing and
+                crafting her own songs.</p>
+
+            <p>Patty began performing at local talent shows, gaining recognition for her raw talent and soulful voice.
+                Encouraged by the positive feedback, she started performing at small venues around Nashville, honing her
+                skills and building a loyal fanbase.</p>
+
+            <p>Her perseverance paid off when she caught the attention of a local talent scout who helped her land her
+                first record deal. She released a string of hit singles and albums, earning accolades for her
+                distinctive voice and heartfelt songwriting. With each performance, she captivated audiences with her
+                authenticity and passion, solidifying her as one of country music&#8217;s stars.</p>
+
+            <p>Her perseverance paid off when she caught the attention of a local talent scout who helped her land her
+                first record deal. She released a string of hit singles and albums, earning accolades for her
+                distinctive voice and heartfelt songwriting.</p>
+
+            <h2>Whiskey Sunrise: Live in Nashville by Patty Meltt</h2>
+
+            <p>Patty Meltt&#8217;s latest live album, Whiskey Sunrise: Live in Nashville, captures the essence of a true
+                country music experience. Recorded during an electrifying performance at Nashville&#8217;s iconic Ryman
+                Auditorium, this album showcases Meltt&#8217;s ability to blend raw emotional depth with the celebratory
+                spirit of a live audience.</p>
+
+            <figure>
+                <img src="https://res.cloudinary.com/malarkey/image/upload/v1736981478/CSS%20Tricks%20articles/2025-01-15-2.webp"
+                    alt="">
+                <figcaption>Whiskey Sunrise: Live in Nashville</figcaption>
+            </figure>
+
+            <p>From the opening track, &#8220;Whiskey Sunrise,&#8221; Meltt sets the tone with her signature blend of
+                heartache and resilience. The song&#8217;s vivid imagery of long nights, lost love, and bittersweet
+                mornings perfectly encapsulates the album&#8217;s themes. Her voice, rich with grit and tenderness,
+                commands attention as it weaves through each song, supported by a stellar live band.</p>
+
+            <p>Tracks like &#8220;Hollowed-Out Heart&#8221; and &#8220;Two-Steppin&#8217; Alone&#8221; resonate with
+                heartfelt honesty, while upbeat numbers such as &#8220;Nashville Neon&#8221; and &#8220;Boots on the
+                Barstool&#8221; bring the energy of the concert to life.</p>
+
+            <hr>
+
+            <p>A standout moment is her acoustic rendition of &#8220;Backroads and Memories,&#8221; where Meltt&#8217;s
+                stripped-down vocal performance holds the audience in rapt silence. The live setting amplifies the
+                intimacy of this song, making it a highlight of the album. What truly sets Whiskey Sunrise: Live in
+                Nashville apart is Meltt&#8217;s interaction with the crowd. Between songs, she shares anecdotes that
+                feel like conversations with an old friend, deepening the listener&#8217;s connection to her music.</p>
+
+            <blockquote>
+                <p>&#8220;The instrumentation shines, from the twang of the pedal steel guitar to the rhythmic stomp of
+                    the drums, all balanced to perfection.&#8221;</p>
+                <cite>Andy Clarke. Stuff &#38; Nonsense Magazine.</cite>
+            </blockquote>
+
+            <p>The album&#8217;s production also deserves praise—balanced and clean, it captures the essence of a live
+                show while ensuring every note, every instrument, and every word is perfectly heard. From start to
+                finish, Whiskey Sunrise: Live in Nashville is a celebration of what country music is all about:
+                storytelling, passion, and a sense of home. It not only honors the country music tradition but also
+                cements Patty Meltt&#8217;s place as a standout artist in the genre.</p>
+
+            <p>While Whiskey Sunrise is a live album, it doesn&#8217;t rely solely on the excitement of the crowd to
+                fuel its power. Each track stands strong on its own, proving Meltt&#8217;s ability to craft memorable,
+                timeless songs that shine even outside of the stage atmosphere. The balance of high-energy tracks and
+                heart-wrenching ballads gives listeners a full spectrum of emotions, with each song drawing them deeper
+                into Meltt&#8217;s world.</p>
+
+            <p><img src="https://res.cloudinary.com/malarkey/image/upload/v1736981480/CSS%20Tricks%20articles/2025-01-15-3.webp"
+                    alt="" style="float:right;width:120px;margin:10px 0 10px 10px;"> Whether she&#8217;s belting out a
+                feel-good anthem or serenading the crowd with an emotional ballad, her voice remains the star of the
+                show, a reminder of why she&#8217;s become a beloved figure in country music. Fans and newcomers alike
+                will find something to connect with in Whiskey Sunrise, making it an album that will resonate long after
+                the last note fades away.</p>
+
+        </main>
+    </section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>st</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: #eee;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0 10rem;
+        }
+        .header{
+            height: 50px;
+            background-color: red;
+            position: sticky;
+            top: 0;
+        }
+        .content{
+            /* flex: 1; */
+            flex-grow: 1;
+            background-color: yellow;
+        }
+        .footer{
+            height: 50px;
+            background-color: blue;
+            position: sticky;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header"></div>
+        <div class="content">
+            content<br>
+            content<br>content<br>content<br>content<br>content<br>content<br>content<br>content
+            <br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
+            content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
+        </div>
+        <div class="footer"></div>
+    </div>
+</body>
+</html>
