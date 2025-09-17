@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card</title>
+    <style>
+        :root {
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            --body-width: 480px;
+            --card-width: 420px;
+            --card-height: 280px;
+            --img-height: 226px;
+            --img-height-expand: 290px;
+            background-color: #333;
+        }
+
+        body {
+            width: var(--body-width);
+            background-color: #eee;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem 0;
+        }
+
+        .card {
+            width: var(--card-width);
+            height: var(--card-height);
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 .2rem 2rem rgba(0, 0, 0, .1);
+            margin: 1rem 0;
+            transition: .3s all cubic-bezier(0, 1, 0.95, 1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: var(--img-height);
+            object-fit: cover;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+        .card h4 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: .8rem 1.2rem;
+            line-height: 2rem;
+            letter-spacing: .5px;
+            padding-bottom: 0;
+        }
+
+        .card .content-wrapper {
+            height: 0;
+            overflow: hidden;
+            transition: all .3s ease-in-out;
+            /* opacity: .8; */
+        }
+
+        .card .content-wrapper .content {
+            padding: 0 1.2rem;
+            background-color: #fff;
+            overflow: auto;
+        }
+
+        .card p {
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+        }
+
+        .card.active {
+            transform: translateY(var(--data-offset-top)) scale(calc(480 / 420));
+            transform-origin: 50% 0;
+            border-radius: 0;
+        }
+
+        .card.active h4 {
+            padding-bottom: .8rem;
+            background-color: #eee;
+        }
+
+        .card.active img {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            height:var(--img-height-expand);
+
+
+        }
+
+        .card.active .content-wrapper {
+            height: 100vh;
+            transition: .3s all ease-in-out;
+            opacity: 1;
+        }
+
+        body.noscroll {
+            overflow: hidden;
+
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.card').click(function (e) {
+                let card = $(e.currentTarget);
+                $(card).toggleClass('active');
+
+                let card_offset_scrolltop = $(card).offset().top - $(window).scrollTop();
+                $(card).css('--data-offset-top', (card_offset_scrolltop * -1) + 'px');
+
+
+                let ratio = 480 / 420
+                let height = $(window).height()
+                height -= $(card).find('img').outerHeight() * ratio
+                height -= $(card).find('h4').outerHeight() * ratio
+                height /= ratio
+
+                $(card).find('.content').css('height', height);
+
+                if ($(card).hasClass('active')) {
+                    $('body').addClass('noscroll');
+                } else {
+                    $('body').removeClass('noscroll');
+                }
+            })
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="card">
+        <img src="https://picsum.photos/900/600?random=233">
+        <h4>APPLE OF THE DAY1</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tenetur at, laboriosam modi magni
+                    suscipit. Aliquid, cumque delectus vitae unde quos voluptate, dolorum et numquam aliquam sit iste
+                    inventore quia.</p>
+                <p>Nobis sequi facere nulla repellendus. Nesciunt, quo, exercitationem aperiam maxime magni dignissimos
+                    eum
+                    facere amet magnam unde rerum tenetur iusto. Nostrum, recusandae. Omnis repellat quas voluptatum
+                    dolorum, illo placeat laborum!</p>
+                <p>Tempore, provident? Reiciendis omnis nihil distinctio, sed, possimus earum quibusdam suscipit
+                    reprehenderit molestias voluptatem magnam saepe, doloribus hic. Laborum animi sunt amet. Obcaecati
+                    optio
+                    ipsa a nostrum iste, dolore officia!</p>
+                <p>Harum quidem reiciendis obcaecati corrupti? Impedit nam debitis officiis amet, dignissimos sunt. Sint
+                    labore excepturi amet, optio neque similique tempore magni iure doloremque omnis animi quod ad sunt
+                    cupiditate veniam.</p>
+                <p>Dolor maiores quas mollitia autem soluta eveniet voluptatibus voluptatum molestias, consequuntur
+                    deserunt quae explicabo libero nostrum inventore animi repellendus doloribus error expedita
+                    laudantium
+                    eos impedit iusto! Placeat quasi inventore eius.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://picsum.photos/900/600?random=456">
+        <h4>APPLE OF THE DAY2</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tenetur at, laboriosam modi magni
+                    suscipit. Aliquid, cumque delectus vitae unde quos voluptate, dolorum et numquam aliquam sit iste
+                    inventore quia.</p>
+                <p>Nobis sequi facere nulla repellendus. Nesciunt, quo, exercitationem aperiam maxime magni dignissimos
+                    eum
+                    facere amet magnam unde rerum tenetur iusto. Nostrum, recusandae. Omnis repellat quas voluptatum
+                    dolorum, illo placeat laborum!</p>
+                <p>Tempore, provident? Reiciendis omnis nihil distinctio, sed, possimus earum quibusdam suscipit
+                    reprehenderit molestias voluptatem magnam saepe, doloribus hic. Laborum animi sunt amet. Obcaecati
+                    optio
+                    ipsa a nostrum iste, dolore officia!</p>
+                <p>Harum quidem reiciendis obcaecati corrupti? Impedit nam debitis officiis amet, dignissimos sunt. Sint
+                    labore excepturi amet, optio neque similique tempore magni iure doloremque omnis animi quod ad sunt
+                    cupiditate veniam.</p>
+                <p>Dolor maiores quas mollitia autem soluta eveniet voluptatibus voluptatum molestias, consequuntur
+                    deserunt quae explicabo libero nostrum inventore animi repellendus doloribus error expedita
+                    laudantium
+                    eos impedit iusto! Placeat quasi inventore eius.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://picsum.photos/900/600?random=1">
+        <h4>APPLE OF THE DAY3</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tenetur at, laboriosam modi magni
+                    suscipit. Aliquid, cumque delectus vitae unde quos voluptate, dolorum et numquam aliquam sit iste
+                    inventore quia.</p>
+                <p>Nobis sequi facere nulla repellendus. Nesciunt, quo, exercitationem aperiam maxime magni dignissimos
+                    eum
+                    facere amet magnam unde rerum tenetur iusto. Nostrum, recusandae. Omnis repellat quas voluptatum
+                    dolorum, illo placeat laborum!</p>
+                <p>Tempore, provident? Reiciendis omnis nihil distinctio, sed, possimus earum quibusdam suscipit
+                    reprehenderit molestias voluptatem magnam saepe, doloribus hic. Laborum animi sunt amet. Obcaecati
+                    optio
+                    ipsa a nostrum iste, dolore officia!</p>
+                <p>Harum quidem reiciendis obcaecati corrupti? Impedit nam debitis officiis amet, dignissimos sunt. Sint
+                    labore excepturi amet, optio neque similique tempore magni iure doloremque omnis animi quod ad sunt
+                    cupiditate veniam.</p>
+                <p>Dolor maiores quas mollitia autem soluta eveniet voluptatibus voluptatum molestias, consequuntur
+                    deserunt quae explicabo libero nostrum inventore animi repellendus doloribus error expedita
+                    laudantium
+                    eos impedit iusto! Placeat quasi inventore eius.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://picsum.photos/900/600?random=3">
+        <h4>APPLE OF THE DAY4</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tenetur at, laboriosam modi magni
+                    suscipit. Aliquid, cumque delectus vitae unde quos voluptate, dolorum et numquam aliquam sit iste
+                    inventore quia.</p>
+                <p>Nobis sequi facere nulla repellendus. Nesciunt, quo, exercitationem aperiam maxime magni dignissimos
+                    eum
+                    facere amet magnam unde rerum tenetur iusto. Nostrum, recusandae. Omnis repellat quas voluptatum
+                    dolorum, illo placeat laborum!</p>
+                <p>Tempore, provident? Reiciendis omnis nihil distinctio, sed, possimus earum quibusdam suscipit
+                    reprehenderit molestias voluptatem magnam saepe, doloribus hic. Laborum animi sunt amet. Obcaecati
+                    optio
+                    ipsa a nostrum iste, dolore officia!</p>
+                <p>Harum quidem reiciendis obcaecati corrupti? Impedit nam debitis officiis amet, dignissimos sunt. Sint
+                    labore excepturi amet, optio neque similique tempore magni iure doloremque omnis animi quod ad sunt
+                    cupiditate veniam.</p>
+                <p>Dolor maiores quas mollitia autem soluta eveniet voluptatibus voluptatum molestias, consequuntur
+                    deserunt quae explicabo libero nostrum inventore animi repellendus doloribus error expedita
+                    laudantium
+                    eos impedit iusto! Placeat quasi inventore eius.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://picsum.photos/900/600?random=">
+        <h4>APPLE OF THE DAY5</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tenetur at, laboriosam modi magni
+                    suscipit. Aliquid, cumque delectus vitae unde quos voluptate, dolorum et numquam aliquam sit iste
+                    inventore quia.</p>
+                <p>Nobis sequi facere nulla repellendus. Nesciunt, quo, exercitationem aperiam maxime magni dignissimos
+                    eum
+                    facere amet magnam unde rerum tenetur iusto. Nostrum, recusandae. Omnis repellat quas voluptatum
+                    dolorum, illo placeat laborum!</p>
+                <p>Tempore, provident? Reiciendis omnis nihil distinctio, sed, possimus earum quibusdam suscipit
+                    reprehenderit molestias voluptatem magnam saepe, doloribus hic. Laborum animi sunt amet. Obcaecati
+                    optio
+                    ipsa a nostrum iste, dolore officia!</p>
+                <p>Harum quidem reiciendis obcaecati corrupti? Impedit nam debitis officiis amet, dignissimos sunt. Sint
+                    labore excepturi amet, optio neque similique tempore magni iure doloremque omnis animi quod ad sunt
+                    cupiditate veniam.</p>
+                <p>Dolor maiores quas mollitia autem soluta eveniet voluptatibus voluptatum molestias, consequuntur
+                    deserunt quae explicabo libero nostrum inventore animi repellendus doloribus error expedita
+                    laudantium
+                    eos impedit iusto! Placeat quasi inventore eius.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
